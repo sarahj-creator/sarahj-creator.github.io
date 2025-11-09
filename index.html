@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Analyst | Business Growth Specialist</title>
+    <title>Sarah J | Data Analyst</title>
     <style>
         * {
             margin: 0;
@@ -12,240 +12,416 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-             background: url(background.jpg) no-repeat center center fixed;
-    background-size: cover;
-    min-height: 100vh;
-}
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
+            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: #1a1a1a;
+            background: #ffffff;
+            overflow-x: hidden;
         }
 
-        header {
-            text-align: center;
-            padding: 4rem 2rem;
-            color: white;
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 2rem 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #1a1a1a;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 6rem;
+            background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-label {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #f0f0f0;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #666;
+            margin-bottom: 2rem;
+            letter-spacing: 0.5px;
         }
 
         h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 4rem;
             font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .tagline {
-            font-size: 1.3rem;
-            font-weight: 300;
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.8;
-            opacity: 0.95;
-        }
-
-        .main-content {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            padding: 3rem;
-            margin-top: 2rem;
-        }
-
-        .section {
-            margin-bottom: 3rem;
-        }
-
-        .section h2 {
-            color: #3498db;
-            font-size: 2rem;
+            color: #1a1a1a;
             margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 3px solid #3498db;
+            line-height: 1.1;
+            letter-spacing: -2px;
         }
 
-        .section p {
-            font-size: 1.1rem;
-            color: #555;
+        .hero-description {
+            font-size: 1.4rem;
+            color: #666;
+            margin-bottom: 3rem;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #1a1a1a;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #1a1a1a;
+            border: 2px solid #e5e5e5;
+        }
+
+        .btn-secondary:hover {
+            border-color: #1a1a1a;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 0;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             margin-bottom: 1rem;
         }
 
-        .skills-grid {
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .about-text {
+            font-size: 1.15rem;
+            color: #666;
+            max-width: 700px;
+            line-height: 1.8;
+        }
+
+        /* Services Grid */
+        .services {
+            padding: 6rem 0;
+            background: #f8f9fa;
+        }
+
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            border: 1px solid #e5e5e5;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .service-number {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #999;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 6rem 0;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
             margin-top: 2rem;
         }
 
-        .skill-card {
-            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
-            padding: 2rem;
-            border-radius: 15px;
-            color: white;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-        }
-
-        .skill-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .skill-card p {
+        .skill-tag {
+            padding: 0.75rem 1.5rem;
+            background: #f8f9fa;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
             font-size: 0.95rem;
-            color: rgba(255,255,255,0.9);
+            font-weight: 500;
+            color: #1a1a1a;
+            transition: all 0.3s ease;
         }
 
-        .icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta-section {
-            text-align: center;
-            padding: 3rem;
-            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
-            border-radius: 15px;
+        .skill-tag:hover {
+            background: #1a1a1a;
             color: white;
-            margin-top: 3rem;
+            border-color: #1a1a1a;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 0;
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
         }
 
         .cta-section h2 {
             color: white;
-            border: none;
             margin-bottom: 1rem;
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
+        .cta-section p {
+            font-size: 1.2rem;
+            color: #999;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-section .btn-primary {
             background: white;
-            color: #3498db;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-top: 1rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: #1a1a1a;
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        .cta-section .btn-primary:hover {
+            background: #f0f0f0;
         }
 
-        .values-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1.5rem;
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            border-top: 1px solid #e5e5e5;
+            text-align: center;
         }
 
-        .value-tag {
-            background: ##2c3e50;
-            color: ##2c3e50;
-            padding: 0.75rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 500;
-            border: 2px solid ##2c3e50;
+        footer p {
+            color: #999;
+            font-size: 0.9rem;
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
             h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
-            .tagline {
+            .hero-description {
                 font-size: 1.1rem;
             }
 
-            .main-content {
-                padding: 2rem 1.5rem;
+            .nav-links {
+                display: none;
             }
 
-            .skills-grid {
+            .services-grid {
                 grid-template-columns: 1fr;
             }
-        }
 
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: white;
-            margin-top: 2rem;
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Sarah-Jane Johnson</h1>
-            <p class="tagline">I help organisations grow by uncovering patterns, predicting trends, and turning insights into meaningful impact.</p>
-        </header>
-
-        <div class="main-content">
-            <section class="section">
-                <h2>About Me</h2>
-                <p>I'm a data analyst with a passion for transforming complex data into clear, actionable strategies. With expertise in SQL, Python, R Studio, and Power BI, I specialise in uncovering the stories hidden within numbers and translating them into business growth.</p>
-                <p>My work focuses on understanding patterns in customer behavior, fundraising campaigns, and organizational performance to drive meaningful outcomes that make a real difference.</p>
-            </section>
-
-            <section class="section">
-                <h2>What I Do</h2>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <div class="icon">📊</div>
-                        <h3>Data Analysis</h3>
-                        <p>Extracting insights from complex datasets using SQL, Python, and R to inform strategic decisions</p>
-                    </div>
-                    <div class="skill-card">
-                        <div class="icon">🔮</div>
-                        <h3>Predictive Analytics</h3>
-                        <p>Building models to forecast trends and identify opportunities before they emerge</p>
-                    </div>
-                    <div class="skill-card">
-                        <div class="icon">📈</div>
-                        <h3>Business Intelligence</h3>
-                        <p>Creating compelling visualizations in Power BI that tell your data's story clearly</p>
-                    </div>
-                    <div class="skill-card">
-                        <div class="icon">🎯</div>
-                        <h3>Strategic Insights</h3>
-                        <p>Translating analysis into actionable recommendations that drive real business growth</p>
-                    </div>
+    <nav>
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">SJ</div>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#contact">Contact</a>
                 </div>
-            </section>
-
-            <section class="section">
-                <h2>My Approach</h2>
-                <div class="values-list">
-                    <div class="value-tag">Data-Driven Decisions</div>
-                    <div class="value-tag">Clear Communication</div>
-                    <div class="value-tag">Impact-Focused</div>
-                    <div class="value-tag">Strategic Thinking</div>
-                    <div class="value-tag">Continuous Learning</div>
-                </div>
-            </section>
-
-            <div class="cta-section">
-                <h2>Let's Work Together</h2>
-                <p>Ready to turn your data into your competitive advantage? I'd love to help your organization uncover insights that drive growth.</p>
-                <a href="sarahjgj@gmai.com" class="cta-button">Get In Touch</a>
             </div>
         </div>
+    </nav>
 
-        <footer>
-            <p>&copy; 2025 Sarah-Jane Johnson. All rights reserved.</p>
-        </footer>
-    </div>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-label">DATA ANALYST</span>
+                <h1>Transforming Data Into Growth</h1>
+                <p class="hero-description">I help organizations grow by uncovering patterns, predicting trends, and turning insights into meaningful impact.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="#services" class="btn btn-secondary">View Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">ABOUT</div>
+                <h2>Precision Meets Purpose</h2>
+            </div>
+            <div class="about-text">
+                <p>I'm a data analyst specializing in transforming complex datasets into clear, actionable strategies. With expertise in SQL, Python, R Studio, and Power BI, I focus on understanding patterns in customer behavior, fundraising campaigns, and organizational performance.</p>
+                <br>
+                <p>My approach combines technical rigor with strategic thinking to deliver insights that drive measurable business outcomes and create lasting impact.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">SERVICES</div>
+                <h2>What I Do</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-number">01</div>
+                    <h3>Data Analysis & Modeling</h3>
+                    <p>Extract meaningful insights from complex datasets using advanced statistical methods and visualization techniques to inform strategic decision-making.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">02</div>
+                    <h3>Predictive Analytics</h3>
+                    <p>Build forecasting models that identify emerging trends and opportunities, helping organizations stay ahead of market shifts.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">03</div>
+                    <h3>Business Intelligence</h3>
+                    <p>Design interactive dashboards and reports that translate raw data into compelling narratives for stakeholders at all levels.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">04</div>
+                    <h3>Strategic Consulting</h3>
+                    <p>Partner with leadership teams to align data initiatives with business objectives and maximize ROI on analytics investments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">EXPERTISE</div>
+                <h2>Technical Skills</h2>
+            </div>
+            <div class="skills-list">
+                <div class="skill-tag">SQL</div>
+                <div class="skill-tag">Python</div>
+                <div class="skill-tag">R Studio</div>
+                <div class="skill-tag">Power BI</div>
+                <div class="skill-tag">Data Visualization</div>
+                <div class="skill-tag">Statistical Analysis</div>
+                <div class="skill-tag">Predictive Modeling</div>
+                <div class="skill-tag">Machine Learning</div>
+                <div class="skill-tag">Data Strategy</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Let's Work Together</h2>
+            <p>Ready to transform your data into actionable insights? Let's discuss how I can help your organization grow.</p>
+            <a href="https://www.linkedin.com/in/yourprofile" class="btn btn-primary">Connect on LinkedIn</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sarah J. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
