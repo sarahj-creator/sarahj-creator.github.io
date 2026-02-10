@@ -1,629 +1,340 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sarah Jane | Human-Centred Data Analyst</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sarah Jane | Data Analyst</title>
 
-        body {
-            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.7;
-            color: #2C3E50;
-            background: #FAF9F6;
-            overflow-x: hidden;
-        }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
+*{margin:0;padding:0;box-sizing:border-box;}
 
-        /* Navigation */
-        nav {
-            padding: 2rem 0;
-            background: #FFFFFF;
-            border-bottom: 1px solid #E8E6E1;
-        }
+:root{
+--text-primary:#0f0f0f;
+--text-secondary:#525252;
+--bg-primary:#ffffff;
+--bg-secondary:#fafafa;
+--accent:#0066ff;
+--border:#e5e5e5;
+--gradient-start:#0066ff;
+--gradient-end:#00d4ff;
+}
 
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+body{
+font-family:'Space Grotesk',system-ui;
+line-height:1.6;
+color:var(--text-primary);
+background:var(--bg-primary);
+font-size:16px;
+}
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #0A2540;
-            letter-spacing: -0.5px;
-        }
+.container{
+max-width:1200px;
+margin:0 auto;
+padding:0 clamp(1rem,5vw,3rem);
+}
 
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-        }
+/* NAV */
+nav{
+padding:1.5rem 0;
+background:rgba(255,255,255,0.85);
+backdrop-filter:blur(12px);
+position:sticky;
+top:0;
+border-bottom:1px solid var(--border);
+z-index:1000;
+}
 
-        .nav-links a {
-            color: #5A6C7D;
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            font-weight: 500;
-        }
+.nav-content{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
 
-        .nav-links a:hover {
-            color: #0A2540;
-        }
+.logo{font-weight:600;font-size:1.25rem;}
 
-        /* Hero Section */
-        .hero {
-            padding: 8rem 0 6rem;
-            background: #FFFFFF;
-        }
+.nav-links{display:flex;gap:2rem;}
 
-        .hero-content {
-            max-width: 900px;
-        }
+.nav-links a{
+text-decoration:none;
+color:var(--text-secondary);
+font-size:0.95rem;
+font-weight:500;
+position:relative;
+}
 
-        .hero-label {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: #F0EFE9;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: #5A6C7D;
-            margin-bottom: 2rem;
-            letter-spacing: 0.5px;
-        }
+.nav-links a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-4px;
+width:0;
+height:2px;
+background:var(--accent);
+transition:width .25s;
+}
 
-        h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            color: #0A2540;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-            letter-spacing: -2px;
-        }
+.nav-links a:hover::after{width:100%;}
 
-        .hero-description {
-            font-size: 1.4rem;
-            color: #5A6C7D;
-            margin-bottom: 3rem;
-            font-weight: 400;
-            line-height: 1.6;
-        }
+/* HERO */
+.hero{
+padding:clamp(4rem,12vh,8rem) 0 clamp(3rem,8vh,6rem);
+background:linear-gradient(135deg,#fafafa,#ffffff);
+position:relative;
+overflow:hidden;
+}
 
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-        }
+.hero::after{
+content:"";
+position:absolute;
+width:500px;
+height:500px;
+background:radial-gradient(circle, rgba(0,102,255,0.12), transparent 70%);
+right:-120px;
+top:-120px;
+pointer-events:none;
+}
 
-        .btn {
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
+h1{
+font-size:clamp(2.5rem,7vw,5rem);
+font-weight:700;
+margin-bottom:1.5rem;
+line-height:1.1;
+letter-spacing:-0.03em;
+}
 
-        .btn-primary {
-            background: #0A2540;
-            color: #FFFFFF;
-        }
+.hero-description{
+font-size:clamp(1.1rem,2.5vw,1.35rem);
+color:var(--text-secondary);
+margin-bottom:2.5rem;
+max-width:700px;
+}
 
-        .btn-primary:hover {
-            background: #163D5F;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(10, 37, 64, 0.2);
-        }
+.btn{
+padding:0.9rem 1.75rem;
+border-radius:100px;
+text-decoration:none;
+font-weight:600;
+display:inline-flex;
+gap:.5rem;
+transition:.2s;
+}
 
-        .btn-secondary {
-            background: transparent;
-            color: #0A2540;
-            border: 2px solid #E8E6E1;
-        }
+.btn-primary{
+background:var(--text-primary);
+color:#fff;
+}
 
-        .btn-secondary:hover {
-            border-color: #0A2540;
-        }
+.btn-primary:hover{
+background:var(--accent);
+transform:translateY(-1px);
+}
 
-        /* Philosophy Section */
-        .philosophy {
-            padding: 6rem 0;
-            background: #F5F3EE;
-        }
+.btn-secondary{
+border:1.5px solid var(--border);
+color:var(--text-primary);
+}
 
-        .philosophy-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
+/* SECTIONS */
+section{padding:clamp(4rem,10vh,7rem) 0;}
 
-        .section-label {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #8B9299;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1.5rem;
-        }
+.section-label{
+font-size:.75rem;
+font-weight:700;
+letter-spacing:2px;
+color:var(--text-secondary);
+margin-bottom:1rem;
+display:inline-block;
+}
 
-        h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #0A2540;
-            margin-bottom: 2rem;
-            letter-spacing: -1px;
-        }
+.section-label::after{
+content:"";
+display:block;
+width:40px;
+height:2px;
+background:var(--accent);
+margin-top:8px;
+}
 
-        .philosophy-text {
-            font-size: 1.2rem;
-            color: #5A6C7D;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
+h2{
+font-size:clamp(2rem,5vw,3rem);
+margin-bottom:1.5rem;
+letter-spacing:-.02em;
+}
 
-        /* Background Section */
-        .background {
-            padding: 6rem 0;
-            background: #FFFFFF;
-        }
+/* CARDS */
+.background-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:1.5rem;
+margin-top:3rem;
+}
 
-        .background-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
+.background-card{
+background:#fff;
+padding:2.5rem;
+border-radius:16px;
+border:1px solid var(--border);
+transition:.3s;
+}
 
-        .background-card {
-            background: #FAF9F6;
-            padding: 3rem;
-            border-radius: 12px;
-            border-left: 4px solid #0A2540;
-            transition: all 0.3s ease;
-        }
+.background-card:hover{
+transform:translateY(-6px);
+box-shadow:0 18px 45px rgba(0,0,0,0.08);
+border-color:rgba(0,102,255,0.35);
+}
 
-        .background-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-        }
+/* EXPERIENCE */
+.experience{
+background:var(--text-primary);
+color:#fff;
+}
 
-        .background-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
+.experience-content{
+background:rgba(255,255,255,0.05);
+border-radius:16px;
+padding:2.5rem;
+margin-bottom:1.5rem;
+}
 
-        .background-card h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #0A2540;
-            margin-bottom: 1rem;
-            letter-spacing: -0.5px;
-        }
+.experience-list li{
+margin-bottom:1.25rem;
+line-height:1.75;
+list-style:none;
+position:relative;
+padding-left:1.5rem;
+}
 
-        .background-card p {
-            color: #5A6C7D;
-            line-height: 1.7;
-            font-size: 1rem;
-        }
+.experience-list li::before{
+content:"•";
+position:absolute;
+left:0;
+color:var(--gradient-end);
+}
 
-        /* How This Helps Section */
-        .value-prop {
-            padding: 6rem 0;
-            background: #0A2540;
-            color: #FFFFFF;
-        }
+/* SKILLS */
+.skills{background:var(--bg-secondary);}
 
-        .value-prop h2 {
-            color: #FFFFFF;
-            text-align: center;
-            margin-bottom: 1rem;
-        }
+.skills-list{
+display:flex;
+flex-wrap:wrap;
+gap:.65rem;
+}
 
-        .value-prop-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #A0B3C5;
-            margin-bottom: 4rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+.skill-tag{
+padding:.6rem 1.1rem;
+background:#fff;
+border:1px solid var(--border);
+border-radius:100px;
+font-size:.85rem;
+transition:.2s;
+}
 
-        .value-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
+.skill-tag:hover{
+background:var(--text-primary);
+color:#fff;
+transform:translateY(-2px);
+}
 
-        .value-item {
-            padding: 2rem;
-            background: rgba(255,255,255,0.05);
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
+/* FOOTER */
+footer{
+padding:2.5rem 0;
+background:var(--bg-secondary);
+text-align:center;
+border-top:1px solid var(--border);
+}
 
-        .value-item h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.75rem;
-            color: #FFFFFF;
-        }
-
-        .value-item p {
-            color: #A0B3C5;
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 6rem 0;
-            background: #FFFFFF;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background: #FAF9F6;
-            padding: 3rem;
-            border-radius: 12px;
-            border: 1px solid #E8E6E1;
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-            border-color: #0A2540;
-        }
-
-        .service-number {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #8B9299;
-            margin-bottom: 1.5rem;
-            letter-spacing: 1px;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #0A2540;
-            margin-bottom: 1rem;
-            letter-spacing: -0.5px;
-        }
-
-        .service-card p {
-            color: #5A6C7D;
-            line-height: 1.7;
-            font-size: 1rem;
-        }
-
-        /* Skills Section */
-        .skills {
-            padding: 6rem 0;
-            background: #F5F3EE;
-        }
-
-        .skills-categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .skill-category h3 {
-            font-size: 1.3rem;
-            color: #0A2540;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .skill-tag {
-            padding: 0.6rem 1.2rem;
-            background: #FFFFFF;
-            border: 1px solid #E8E6E1;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #2C3E50;
-            transition: all 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            background: #0A2540;
-            color: white;
-            border-color: #0A2540;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 6rem 0;
-            background: #FFFFFF;
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            margin-bottom: 1rem;
-        }
-
-        .cta-section p {
-            font-size: 1.2rem;
-            color: #5A6C7D;
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Footer */
-        footer {
-            padding: 3rem 0;
-            background: #F5F3EE;
-            border-top: 1px solid #E8E6E1;
-            text-align: center;
-        }
-
-        footer p {
-            color: #8B9299;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-description {
-                font-size: 1.1rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .services-grid,
-            .background-grid,
-            .value-list,
-            .skills-categories {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                text-align: center;
-            }
-        }
-    </style>
+@media(max-width:768px){
+.nav-links{display:none;}
+}
+</style>
 </head>
+
 <body>
-    <nav>
-        <div class="container">
-            <div class="nav-content">
-                <div class="logo">Sarah J</div>
-                <div class="nav-links">
-                    <a href="#philosophy">Approach</a>
-                    <a href="#background">Background</a>
-                    <a href="#services">Services</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </div>
-        </div>
-    </nav>
 
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <span class="hero-label">HUMAN-CENTRED DATA ANALYST</span>
-                <h1>Understanding the People Behind the Patterns</h1>
-                <p class="hero-description">I help organisations grow by uncovering patterns, predicting trends, and turning insights into meaningful impact, with a deep understanding of human behaviour, wellness, and cultural context.</p>
-                <div class="cta-buttons">
-                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                    <a href="#background" class="btn btn-secondary">Learn More</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<nav>
+<div class="container">
+<div class="nav-content">
+<div class="logo">Sarah J</div>
+<div class="nav-links">
+<a href="#about">About</a>
+<a href="#experience">Experience</a>
+<a href="#skills">Skills</a>
+<a href="#contact">Contact</a>
+</div>
+</div>
+</div>
+</nav>
 
-    <section class="philosophy" id="philosophy">
-        <div class="container">
-            <div class="philosophy-content">
-                <div class="section-label">MY APPROACH</div>
-                <h2>Bridging Logic and Intuition</h2>
-                <p class="philosophy-text">Data doesn't exist in a vacuum, it's created by people, shaped by culture, and influenced by human behaviour. My unique background allows me to see what others miss: the human story behind the numbers.</p>
-                <p class="philosophy-text">I bridge analytics and empathy, numbers and narratives, technical precision and cultural awareness. The result? Insights that don't just inform decisions, they transform outcomes.</p>
-            </div>
-        </div>
-    </section>
+<section class="hero">
+<div class="container">
+<h1>I analyse data through the lens of human behaviour</h1>
+<p class="hero-description">Data analyst with 3 years of nonprofit experience. My anthropology degree and wellness background help me see not just what the data says, but why people behave the way they do.</p>
+<a href="#contact" class="btn btn-primary">Get in touch</a>
+</div>
+</section>
 
-    <section class="background" id="background">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label">WHAT MAKES ME DIFFERENT</div>
-                <h2>A Unique Combination</h2>
-            </div>
-            <div class="background-grid">
-                <div class="background-card">
-                    <div class="background-icon">📊</div>
-                    <h3>Data Analytics</h3>
-                    <p>I uncover the patterns that drive behaviour and decision-making. With expertise in Power BI, SQL, and Excel, I turn complex information into clear, actionable insights that improve performance and growth.</p>
-                </div>
-                <div class="background-card">
-                    <div class="background-icon">🌍</div>
-                    <h3>Anthropology</h3>
-                    <p>I bring a global and cultural lens, understanding not just the "what" behind behaviour, but the "why." I'm skilled at recognising how context, culture, and human connection shape data trends and business dynamics.</p>
-                </div>
-                <div class="background-card">
-                    <div class="background-icon">🌿</div>
-                    <h3>Wellness</h3>
-                    <p>I understand human wellness on a deeply personal level, how people carry stress, how they respond to environments, and how balance leads to better outcomes. That sensitivity translates into how I approach any problem: with awareness, empathy, and precision.</p>
-                </div>
-                <div class="background-card">
-                    <div class="background-icon">🤖</div>
-                    <h3>AI & Communication</h3>
-                    <p>I explore how AI enhances human communication through precise prompt writing. This work has sharpened my ability to articulate requirements clearly and leverage AI tools strategically, skills that translate directly into better stakeholder communication and more efficient data workflows.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="about">
+<div class="container">
+<div class="section-label">MY APPROACH</div>
+<h2>Data analysis with human insight</h2>
+<p>I don't just report what the data shows, I ask why the patterns exist.</p>
+</div>
+</section>
 
-    <section class="value-prop">
-        <div class="container">
-            <h2>How This Combination Creates Value</h2>
-            <p class="value-prop-subtitle">My diverse background means I bring insights that traditional analysts miss</p>
-            <div class="value-list">
-                <div class="value-item">
-                    <h4>Behavioural Pattern Recognition</h4>
-                    <p>I see beyond numbers to understand the human motivations and stress factors driving the data</p>
-                </div>
-                <div class="value-item">
-                    <h4>Cultural Context Analysis</h4>
-                    <p>I interpret data through a cultural lens, recognising how different groups interact with systems differently</p>
-                </div>
-                <div class="value-item">
-                    <h4>Holistic Problem-Solving</h4>
-                    <p>I consider organisational wellness alongside performance metrics for sustainable solutions</p>
-                </div>
-                <div class="value-item">
-                    <h4>Empathetic Communication</h4>
-                    <p>I translate complex findings into narratives that resonate with diverse stakeholders</p>
-                </div>
-                <div class="value-item">
-                    <h4>Human-Centred Design</h4>
-                    <p>I ensure data solutions account for real human needs, not just technical requirements</p>
-                </div>
-                <div class="value-item">
-                    <h4>Qualitative + Quantitative</h4>
-                    <p>I blend statistical rigor with deep qualitative understanding for richer insights</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="background">
+<div class="container">
+<div class="section-label">WHAT MAKES ME DIFFERENT</div>
+<h2>How my background shapes my work</h2>
+<div class="background-grid">
+<div class="background-card"><h3>Data analytics</h3><p>Power BI, SQL, Excel insights.</p></div>
+<div class="background-card"><h3>Anthropology</h3><p>Understanding behaviour behind numbers.</p></div>
+<div class="background-card"><h3>Wellness</h3><p>Human motivation perspective.</p></div>
+<div class="background-card"><h3>AI</h3><p>Prompt engineering & automation.</p></div>
+</div>
+</div>
+</section>
 
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label">SERVICES</div>
-                <h2>What I Do</h2>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-number">01</div>
-                    <h3>Behavioural Data Analysis</h3>
-                    <p>Analyse customer behaviour, supporter engagement, and organisational patterns to understand what drives decisions and identify opportunities for growth.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-number">02</div>
-                    <h3>Predictive Analytics</h3>
-                    <p>Build forecasting models that combine statistical methods with behavioural insights to predict trends and outcomes with cultural context.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-number">03</div>
-                    <h3>Human-Centred Dashboards</h3>
-                    <p>Design Power BI visualisations that tell compelling stories, making complex data accessible and actionable for all stakeholders.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-number">04</div>
-                    <h3>Organisational Health Analysis</h3>
-                    <p>Assess team dynamics, engagement patterns, and cultural factors alongside performance metrics for holistic organisational insights.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-number">05</div>
-                    <h3>Customer Experience Analytics</h3>
-                    <p>Deep-dive into customer journey data with ethnographic understanding to improve satisfaction and retention.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-number">06</div>
-                    <h3>Strategic Data Consulting</h3>
-                    <p>Partner with leadership to align data strategy with human-centred organisational goals and values.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="experience" id="experience">
+<div class="container">
+<div class="section-label">EXPERIENCE</div>
+<h2>What I've done</h2>
+<div class="experience-content">
+<ul class="experience-list">
+<li>Analysed donor behaviour across 50,000+ records</li>
+<li>Built Power BI dashboards</li>
+<li>SQL segmentation for campaign targeting</li>
+</ul>
+</div>
+</div>
+</section>
 
-    <section class="skills" id="skills">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label">EXPERTISE</div>
-                <h2>Technical & Analytical Skills</h2>
-            </div>
-            <div class="skills-categories">
-                <div class="skill-category">
-                    <h3>Data & Analytics</h3>
-                    <div class="skills-list">
-                        <div class="skill-tag">SQL</div>
-                        <div class="skill-tag">Python</div>
-                        <div class="skill-tag">R Studio</div>
-                        <div class="skill-tag">Power BI</div>
-                        <div class="skill-tag">Statistical Analysis</div>
-                        <div class="skill-tag">Predictive Modeling</div>
-                        <div class="skill-tag">Data Visualisation</div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Research & Analysis</h3>
-                    <div class="skills-list">
-                        <div class="skill-tag">Behavioural Analysis</div>
-                        <div class="skill-tag">Ethnographic Research</div>
-                        <div class="skill-tag">Cultural Analysis</div>
-                        <div class="skill-tag">Qualitative Methods</div>
-                        <div class="skill-tag">Pattern Recognition</div>
-                        <div class="skill-tag">User Research</div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Strategic Impact</h3>
-                    <div class="skills-list">
-                        <div class="skill-tag">Stakeholder Engagement</div>
-                        <div class="skill-tag">Strategic Planning</div>
-                        <div class="skill-tag">Data Storytelling</div>
-                        <div class="skill-tag">Change Management</div>
-                        <div class="skill-tag">Cross-Cultural Communication</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="skills" id="skills">
+<div class="container">
+<div class="section-label">SKILLS</div>
+<h2>Tools & expertise</h2>
+<div class="skills-list">
+<div class="skill-tag">SQL</div>
+<div class="skill-tag">Python</div>
+<div class="skill-tag">Power BI</div>
+<div class="skill-tag">Excel</div>
+</div>
+</div>
+</section>
 
-    <section class="cta-section" id="contact">
-        <div class="container">
-            <h2>Let's Work Together</h2>
-            <p>Ready to gain insights that go beyond the numbers? Let's discuss how I can help your organisation see the full picture.</p>
-            <a href="mailto:sarahjgj@gmail.com" class="btn btn-primary">Get In Touch</a>
-        </div>
-    </section>
+<section id="contact">
+<div class="container">
+<h2>Open to opportunities</h2>
+<a href="mailto:sarahjgj@gmail.com" class="btn btn-primary">Email me</a>
+</div>
+</section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Sarah Jane. All rights reserved.</p>
-        </div>
-    </footer>
+<footer>
+<div class="container">
+<p>&copy; 2026 Sarah Jane</p>
+</div>
+</footer>
+
 </body>
 </html>
